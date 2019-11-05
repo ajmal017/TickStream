@@ -85,10 +85,10 @@ class IBService(IBWrapper, IBClient):
                   attrib: TickAttrib):
         try:
             super().tickPrice(reqId, tickType, price, attrib)
-            print("TickPrice - TickerId:", reqId, "tickType:", tickType,
-                        "Price:", price, "localtime", str(self.get_time_stamp()))
-            data = {"reqid":reqId, "price": price, "timestamp": str(self.get_time_stamp()) }
-            producer.send(str(reqId), value=data)
+            #print("TickPrice - TickerId:", reqId, "tickType:", tickType,
+            #           "Price:", price, "localtime", str(self.get_time_stamp()))
+            data = {"TopicId":reqId, "Price": price, "Timestamp": str(self.get_time_stamp()) }
+            producer.send(str(tsobj.ib_subcribed_scripts[int(reqId)-1]['ibsymbol']), value=data)
         except Exception as ex:
             log.error(ex)
             log.error(traceback.format_exc())

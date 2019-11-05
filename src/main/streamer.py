@@ -26,8 +26,6 @@ class streamer(object):
             for contract in tsobj.ib_subcribed_scripts:
                 self.ibobj.subscribe_contract(contract, self.ibobj)
                 log.info("Sucessfully Subscribed "+ str(contract))
-                # Remove this break to subscribe the whole list
-                break
             self.ibobj.start_run(self.ibobj)
         except Exception as ex:
             log.error(ex)
