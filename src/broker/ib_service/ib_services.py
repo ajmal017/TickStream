@@ -87,7 +87,7 @@ class IBService(IBWrapper, IBClient):
             super().tickPrice(reqId, tickType, price, attrib)
             #print("TickPrice - TickerId:", reqId, "tickType:", tickType,
             #           "Price:", price, "localtime", str(self.get_time_stamp()))
-            data = {"TopicId":reqId, "Price": price, "Timestamp": str(self.get_time_stamp()) }
+            data = {"TickerId": reqId, "TopicId": str(tsobj.ib_subcribed_scripts[int(reqId)-1]['ibsymbol']), "Price": price, "Timestamp": str(self.get_time_stamp()) }
             producer.send(str(tsobj.ib_subcribed_scripts[int(reqId)-1]['ibsymbol']), value=data)
         except Exception as ex:
             log.error(ex)
@@ -101,7 +101,7 @@ class IBService(IBWrapper, IBClient):
     def subscribe_contract(self, symboldict, ibcon):
         try:
             self.contract = self.get_stk_contract(str(symboldict.get("ibsymbol")))
-            ibcon.reqMktData(int(symboldict.get("reqid")), self.contract,"", False, False, [])
+            ibcon.reqMktData(int(symboldict.get("reqid")), self.contract, "", False, False, [])
         except Exception as ex:
             log.error(ex)
             log.error(traceback.format_exc())
