@@ -1,8 +1,9 @@
 
-
-import sys, os
+import sys
+import os
 import json
 sys.path.append(os.getcwd()[:os.getcwd().find("TickStream")+len("TickStream")])
+
 from src.loghandler import log
 from src.main.tick_stream_object import TickStreamObjects as tsobj
 from src.main.streamer import streamer
@@ -30,10 +31,8 @@ class Main(object):
             if tsobj.ib_subcribed_scripts is not None:
                 log.info("Tick Streamer starting streaming..")
                 strmobj.start_streaming()
-
         except Exception as ex:
             log.error(ex)
-
 
 if __name__ == "__main__":
     main = Main()

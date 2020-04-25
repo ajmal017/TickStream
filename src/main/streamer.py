@@ -1,4 +1,6 @@
-import sys, os
+import sys
+import os
+import traceback
 import json
 sys.path.append(os.getcwd()[:os.getcwd().find("TickStream")+len("TickStream")])
 from src.loghandler import log

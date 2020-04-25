@@ -1,0 +1,23 @@
+[
+  {
+    "Company Name": "Cipla Ltd.",
+    "Industry": "PHARMA",
+    "Symbol": "CIPLA",
+    "Series": "EQ",
+    "ISIN Code": "INE059A01026"
+  },
+   {
+    "Company Name": "State Bank of India",
+    "Industry": "FINANCIAL SERVICES",
+    "Symbol": "SBIN",
+    "Series": "EQ",
+    "ISIN Code": "INE062A01020"
+  },
+  {
+    "Company Name": "Adani Ports and Special Economic Zone Ltd.",
+    "Industry": "SERVICES",
+    "Symbol": "ADANIPORTS",
+    "Series": "EQ",
+    "ISIN Code": "INE742F01042"
+  }
+]
